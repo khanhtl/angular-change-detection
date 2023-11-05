@@ -6,8 +6,7 @@ import { highLight } from 'src/highLight';
   template: `
     {{ highLight() }}
     <span>Quick Search Component</span>
-  `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  `
 })
 export class QuickSearchComponent {
   constructor(private el: ElementRef) {}

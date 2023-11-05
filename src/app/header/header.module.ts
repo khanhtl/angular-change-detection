@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { QuickSearchComponent } from './quick-search/quick-search.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AvatarComponent } from './profile/avatar/avatar.component';
 
 
 
@@ -10,7 +11,8 @@ import { ProfileComponent } from './profile/profile.component';
   declarations: [
     HeaderComponent,
     QuickSearchComponent,
-    ProfileComponent
+    ProfileComponent,
+    AvatarComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { ProfileComponent } from './profile/profile.component';
   exports: [
     HeaderComponent,
     QuickSearchComponent,
-    ProfileComponent
+    ProfileComponent,
+    AvatarComponent
   ]
 })
 export class HeaderModule { }

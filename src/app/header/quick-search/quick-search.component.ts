@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { highLight } from 'src/highLight';
 
 @Component({
@@ -6,7 +6,8 @@ import { highLight } from 'src/highLight';
   template: `
     {{ highLight() }}
     <span>Quick Search Component</span>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class QuickSearchComponent {
   constructor(private el: ElementRef) {}

@@ -1,21 +1,31 @@
-import { ChangeDetectionStrategy, Component, ElementRef, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnInit,
+} from '@angular/core';
 import { highLight } from 'src/highLight';
 
 @Component({
   selector: 'app-header',
   template: `
     {{ highLight() }}
-    <span> Header Component </span>
+    <span>
+      Header Component<br />
+      <button (click)="cdr.detectChanges()">Call detect change</button> <br>
+    </span>
     <ul>
       <li><app-quick-search></app-quick-search></li>
       <li><app-profile></app-profile></li>
     </ul>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef, public cdr: ChangeDetectorRef) {}
   highLight() {
     highLight(this.el);
   }
+  
 }

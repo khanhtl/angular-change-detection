@@ -6,6 +6,7 @@ import { highLight } from 'src/highLight';
   template: `
     {{ highLight() }}
     <span> Footer Component </span>
+
     <ul>
       <li><app-logo></app-logo></li>
       <li><app-address></app-address></li>

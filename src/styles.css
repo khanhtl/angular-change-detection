@@ -71,3 +71,7 @@
 .tree>li>span:before {
     outline: none;
 }
+
+.checked {
+    background: greenyellow;
+}

@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
+import { highLight } from 'src/highLight';
 
 @Component({
   selector: 'app-address',
-  templateUrl: './address.component.html',
-  styleUrls: ['./address.component.css']
+  template: `
+    {{ highLight() }}
+    <span>Address Component</span>
+  `
 })
-export class AddressComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class AddressComponent {
+  constructor(private el: ElementRef) {}
+  highLight() {
+    highLight(this.el)
   }
 
 }

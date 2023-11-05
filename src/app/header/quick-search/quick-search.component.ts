@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
+import { highLight } from 'src/highLight';
 
 @Component({
   selector: 'app-quick-search',
-  templateUrl: './quick-search.component.html',
-  styleUrls: ['./quick-search.component.css']
+  template: `
+    {{ highLight() }}
+    <span>Quick Search Component</span>
+  `
 })
-export class QuickSearchComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class QuickSearchComponent {
+  constructor(private el: ElementRef) {}
+  highLight() {
+    highLight(this.el)
   }
 
 }

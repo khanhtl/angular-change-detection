@@ -14,6 +14,11 @@ import { ProfileComponent } from './profile/profile.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    HeaderComponent,
+    QuickSearchComponent,
+    ProfileComponent
   ]
 })
 export class HeaderModule { }

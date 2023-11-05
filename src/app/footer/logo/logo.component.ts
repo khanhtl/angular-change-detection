@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
+import { highLight } from 'src/highLight';
 
 @Component({
   selector: 'app-logo',
-  templateUrl: './logo.component.html',
-  styleUrls: ['./logo.component.css']
+  template: `
+    {{ highLight() }}
+    <span>Logo Component</span>
+  `
 })
-export class LogoComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class LogoComponent {
+  constructor(private el: ElementRef) {}
+  highLight() {
+    highLight(this.el)
   }
 
 }

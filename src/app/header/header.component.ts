@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit } from '@angular/core';
 import { highLight } from 'src/highLight';
 
 @Component({
@@ -11,6 +11,7 @@ import { highLight } from 'src/highLight';
       <li><app-profile></app-profile></li>
     </ul>
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
   constructor(private el: ElementRef) {}

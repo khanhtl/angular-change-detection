@@ -78,6 +78,9 @@
 .checked {
     background: greenyellow;
 }
+.dirty {
+    background: tomato;
+}
 
 button {
     cursor: pointer;

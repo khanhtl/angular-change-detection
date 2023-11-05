@@ -14,7 +14,7 @@ import { highLight } from 'src/highLight';
     <span>
       Header Component<br />
       <button (click)="cdr.detectChanges()">Call detect change</button> <br>
-      <button (click)="cdr.markForCheck()">Call mark for check</button>
+      <button (click)="markForCheck()">Call mark for check</button>
     </span>
     <ul>
       <li><app-quick-search></app-quick-search></li>
@@ -27,5 +27,10 @@ export class HeaderComponent {
   constructor(private el: ElementRef, public cdr: ChangeDetectorRef) { }
   highLight() {
     highLight(this.el);
+  }
+
+  markForCheck() {
+    highLight(this.el, 'dirty', false);
+    this.cdr.markForCheck()
   }
 }

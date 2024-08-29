@@ -18,11 +18,18 @@ export class AvatarComponent {
   constructor(private el: ElementRef, private ngZone: NgZone) {}
   ngDoCheck(): void {
     this.ngZone.runOutsideAngular(() => {
-      highLight(this.el);
+      if(this.prevData !== this.data) {
+        this.prevData = this.data;
+        highLight(this.el);
+      }
     });
   }
   @Input() data:any;
+  prevData: any;
   emitEvent() {
     this.onClick.emit();
+    this.ngZone.runOutsideAngular(() => {
+      highLight(this.el);
+    });
   }
 }

@@ -1,4 +1,4 @@
-import { ApplicationRef, Component, ElementRef } from '@angular/core';
+import { ApplicationRef, Component, ElementRef, NgZone } from '@angular/core';
 import { highLight } from 'src/highLight';
 
 @Component({
@@ -7,7 +7,6 @@ import { highLight } from 'src/highLight';
     <button (click)="app.tick()">Trigger change detection</button>
     <ul class="tree">
       <li>
-        {{ highLight() }}
         <span>App Component</span>
         <ul>
           <li><app-header></app-header></li>
@@ -18,8 +17,10 @@ import { highLight } from 'src/highLight';
   `,
 })
 export class AppComponent {
-  constructor(public app: ApplicationRef, private el: ElementRef) { }
-  highLight() {
-    highLight(this.el);
+  constructor(public app: ApplicationRef, private el: ElementRef, private ngZone: NgZone) { }
+  ngDoCheck() {
+    this.ngZone.runOutsideAngular(() => {
+      highLight(this.el)
+    });
   }
 }

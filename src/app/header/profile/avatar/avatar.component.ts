@@ -1,17 +1,28 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, Output, EventEmitter, Input, NgZone, ChangeDetectionStrategy } from '@angular/core';
 import { highLight } from 'src/highLight';
 
 @Component({
   selector: 'app-avatar',
   template: `
-    {{ highLight() }}
-    <span>Avatar Component</span>
-  `
+     <span>
+      Avatar Component(OnPush)<br />
+      Random value: {{ data?.random || 0 }}<br />
+      <button (click)="emitEvent()">Emit event</button>
+    </span>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AvatarComponent {
-  constructor(private el: ElementRef) {}
-  highLight() {
-    highLight(this.el)
+  @Output() onClick = new EventEmitter<unknown>();
+  clicked: boolean = false;
+  constructor(private el: ElementRef, private ngZone: NgZone) {}
+  ngDoCheck(): void {
+    this.ngZone.runOutsideAngular(() => {
+      highLight(this.el);
+    });
   }
-
+  @Input() data:any;
+  emitEvent() {
+    this.onClick.emit();
+  }
 }

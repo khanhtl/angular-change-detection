@@ -5,7 +5,7 @@ import { highLight } from 'src/highLight';
   selector: 'app-profile',
   template: `
     {{ highLight() }}
-    <span>Profile Component</span>
+    <span>Profile Component(OnPush)</span>
     <ul>
       <li><app-avatar></app-avatar></li>
     </ul>

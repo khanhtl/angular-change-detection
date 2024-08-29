@@ -12,7 +12,7 @@ import { highLight } from 'src/highLight';
   template: `
     {{ highLight() }}
     <span>
-      Header Component<br />
+      Header Component(OnPush)<br />
       <button (click)="cdr.detectChanges()">Call detect change</button> <br>
       <button (click)="markForCheck()">Call mark for check</button>
     </span>
